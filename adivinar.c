@@ -52,4 +52,3 @@ int adivinar(int ini, int fin){
 	
 	return i; 
 }
- 
