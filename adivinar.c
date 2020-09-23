@@ -1,27 +1,18 @@
-#include <stdio.h> 
+#include <stdio.h> //Incluimos bibliotecas
 #include <math.h>
 
-//Rango
-#define INI 1 
+#define INI 1 //Definimos constantes
 #define FIN 100
 
-#define FALSE 0
+#define FALSO 0
 #define TRUE 1
 
+int adivinar(int ini, int fin); //Prototipo de la función de forma entera, que requiere dos enteros
 
-int adivinar(int ini, int fin); 
-
-int main(){ 
-	int x = adivinar(INI, FIN); 
-	
-	printf("El numero fue encontrado en %d intentos", x);
-
-    return 0;
-}
-
-int adivinar(int ini, int fin){
-	int i = 0, rango = 0; 
-	int ad = FALSE; //Determinamos las variables enteras
+int adivinar(int ini, int fin){ //Inicio de la función "adivinar"
+	int i=0;
+	int rango; 
+	int ad=FALSO; //Determinamos las variables enteras
     char r; //Determinamos las variables de carácteres
 	
 	printf("Adivinare un numero que estes pensando entre %d y %d en maximo %d intentos\n", INI, FIN, (int)log2(FIN-INI+1)+1); //Mandamos a pantalla el objetivo del programa
@@ -47,8 +38,14 @@ int adivinar(int ini, int fin){
 		rango=(ini+fin)/2; 
 		i=i+1; 
 		
-	}while(ad==FALSE);
+	}while(ad==FALSO);
 
 	
-	return i; 
+	return i; //Cuando ad no sea FALSO, entonces retornamos el valor de i
+}
+ 
+int main(){ //Función principal
+	int adi=adivinar(INI, FIN); //Determinamos la variable que utilizaremos
+	
+	printf("El numero fue encontrado en %d intentos", adi);
 }
